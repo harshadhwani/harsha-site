@@ -91,8 +91,7 @@
   "todo": [
     "Contact phone/email for bookings - confirm before adding (Canva shows +91 78925 16859)",
     "Photo credit for the Bhajana Bharata photographer",
-    "Videos for Hindustani, Folk, Gamaka and Ghazal stations on the dial",
-    "Replace drawn gopura/pillar/vyali with commissioned or AI-generated heritage art if wanted"
+    "Videos for Hindustani, Folk, Gamaka and Ghazal stations on the dial"
   ],
   "bhajana_bharata": {
     "name": "Bhajana Bharata (Bhajana Bharatha) - A Musical Pilgrimage",
@@ -130,5 +129,6 @@
       }
     ]
   },
-  "youtube_channel": "https://www.youtube.com/channel/UCPV7axwbPNaxjWlqh84Lj8g"
+  "youtube_channel": "https://www.youtube.com/channel/UCPV7axwbPNaxjWlqh84Lj8g",
+  "artwork": "Gopura, pillar and vyali generated with ChatGPT (img/bb/gopura.webp, pillar.webp, vyali.webp)"
 }

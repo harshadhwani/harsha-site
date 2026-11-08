@@ -9,7 +9,7 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Gloock&family=Marcellus+SC&family=Alegreya+Sans:ital,wght@0,400;0,500;0,700;1,400&family=Noto+Serif+Kannada:wght@500;700&family=IBM+Plex+Mono:wght@500&display=swap">
 <style>
-/* Layout: a temple courtyard at dusk. Gopura frames the flipping logo; a sculpted frieze runs the edges; the concert unfolds sideways like a procession between carved pillars. One deliberate maroon-and-gold look. */
+/* Layout: a temple courtyard at dusk. Twin gopuras and vyalis guard the flipping logo; a sculpted frieze runs the edges; the concert unfolds sideways like a procession between carved pillars. One deliberate maroon-and-gold look. */
 :root{
   --sanctum:#2B0912;   /* deepest maroon */
   --maroon:#4A0F1D;    /* main ground */
@@ -51,26 +51,30 @@ p{margin:0}
 
 /* frieze band */
 .frieze{height:56px;background:url("img/bb/frieze.webp") repeat-x left center/auto 100%;filter:sepia(.25) saturate(1.1);border-block:2px solid var(--gold)}
-.frieze.alt{background-position:right center;transform:scaleX(-1)}
+.frieze.alt{background-position:-900px center}
 
 /* hero */
 .hero{position:relative;background:radial-gradient(ellipse 70% 60% at 50% 38%,color-mix(in oklab,var(--saffron) 38%,var(--maroon)) 0,var(--maroon) 55%,var(--sanctum) 100%);overflow:hidden}
 .hero .wrap{position:relative;display:grid;justify-items:center;text-align:center;gap:18px;padding-block:28px 40px}
-.gopura{width:min(100%,980px);height:auto;display:block;color:var(--gold);opacity:.6}
-.stage{position:relative;width:min(100%,900px);margin-top:-46%;display:grid;justify-items:center}
-@media (min-width:980px){.stage{margin-top:-430px}}
+.temple{position:absolute;inset:56px 0 56px;pointer-events:none;display:flex;justify-content:space-between;align-items:flex-end;padding-inline:max(0px,calc((100% - 1380px)/2))}
+.gopura{width:clamp(150px,17vw,260px);height:auto;display:block;filter:drop-shadow(0 18px 30px rgba(0,0,0,.55));margin-bottom:-8px}
+.stage{position:relative;width:min(100%,820px);display:grid;justify-items:center;padding-bottom:6px}
+.vyali{position:absolute;bottom:-6px;width:clamp(84px,11vw,150px);height:auto;filter:drop-shadow(0 10px 18px rgba(0,0,0,.5))}
+.vyali.v-l{left:-4%}.vyali.v-r{right:-4%;transform:scaleX(-1)}
+.hero .wrap{z-index:1}
+@media (max-width:900px){.temple{opacity:.28}.gopura{width:34vw}.vyali{display:none}}
 .flip-wrap{perspective:1600px;width:min(92%,820px);aspect-ratio:2/1}
-.flip{position:relative;width:100%;height:100%;transform-style:preserve-3d;animation:revolve 9s cubic-bezier(.65,0,.35,1) infinite}
-.face{position:absolute;inset:0;display:grid;place-items:center;backface-visibility:hidden;-webkit-backface-visibility:hidden}
-.face img{width:100%;height:100%;object-fit:contain;filter:drop-shadow(0 10px 22px rgba(0,0,0,.55)) drop-shadow(0 0 30px color-mix(in oklab,var(--gold) 40%,transparent))}
-.face.en{transform:rotateY(180deg)}
+.flip{position:relative;width:100%;height:100%;transform-style:preserve-3d;animation:revolve 7s infinite;will-change:transform}
+.face{position:absolute;inset:0;display:grid;place-items:center;backface-visibility:hidden;-webkit-backface-visibility:hidden;transform:translateZ(1px)}
+.face img{width:100%;height:100%;object-fit:contain}
+.face.en{transform:rotateY(180deg) translateZ(1px)}
 .face.en img{width:86%}
-@keyframes revolve{0%,34%{transform:rotateY(0deg)}50%,84%{transform:rotateY(180deg)}100%{transform:rotateY(360deg)}}
-.flip-label{display:flex;gap:14px;justify-content:center;color:var(--cream-soft)}
+@keyframes revolve{0%,33%{transform:rotateY(0deg);animation-timing-function:cubic-bezier(.6,0,.3,1)}50%,83%{transform:rotateY(180deg);animation-timing-function:cubic-bezier(.6,0,.3,1)}100%{transform:rotateY(360deg)}}}
+.flip-label{display:flex;gap:14px;justify-content:center;color:var(--cream-soft);margin-top:14px}
 .flip-label span[aria-current="true"]{color:var(--gold-pale)}
 .tagline{font-family:var(--f-display);font-size:clamp(1.6rem,3.6vw,2.6rem);color:var(--gold-pale)}
 .sub{max-width:60ch;color:var(--cream-soft);font-size:1.08rem}
-.facts{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));width:min(100%,980px);border-top:1px solid var(--gold);border-bottom:1px solid var(--gold);margin-top:8px}
+.facts{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));width:min(100%,800px);border-top:1px solid var(--gold);border-bottom:1px solid var(--gold);margin-top:8px}
 .fact{padding:14px 12px;display:grid;gap:4px;border-right:1px solid color-mix(in oklab,var(--gold) 40%,transparent)}
 .fact:last-child{border-right:0}
 .fact b{font-family:var(--f-display);font-weight:400;font-size:1.35rem;color:var(--cream);line-height:1.15}
@@ -108,8 +112,8 @@ p{margin:0}
 .photo figcaption{font-family:var(--f-caps);letter-spacing:.12em;font-size:.72rem;color:var(--cream-soft);text-align:center}
 .photo.p3x4{aspect-ratio:2/3}
 .photo.wide{aspect-ratio:3/2}
-.pillar{flex:none;height:100%;width:74px;color:var(--gold);opacity:.9;margin-right:22px}
-.pillar svg{width:100%;height:100%;display:block}
+.pillar{flex:none;height:100%;margin-right:22px;display:flex;align-items:flex-end}
+.pillar img{height:100%;width:auto;display:block;filter:drop-shadow(0 12px 20px rgba(0,0,0,.45));user-select:none;-webkit-user-drag:none}
 .end{width:min(80vw,460px)}
 .hint{display:inline-flex;gap:8px;align-items:center}
 .hint i{width:28px;height:1px;background:var(--gold);display:inline-block}
@@ -157,8 +161,8 @@ footer .kn{font-size:1.4rem;color:var(--gold-pale)}
 @media (prefers-reduced-motion:reduce){
   .flip{animation:none}
   .face{backface-visibility:visible;transition:none}
-  .face.en{transform:none;animation:fadeEn 9s steps(1) infinite}
-  .face.kn{animation:fadeKn 9s steps(1) infinite}
+  .face.en{transform:none;animation:fadeEn 7s steps(1) infinite}
+  .face.kn{animation:fadeKn 7s steps(1) infinite}
   *{transition:none!important}
 }
 @keyframes fadeEn{0%{opacity:0}50%{opacity:1}}
@@ -179,7 +183,7 @@ footer .kn{font-size:1.4rem;color:var(--gold-pale)}
   .pin-head{padding-top:22px}
   .track{overflow-x:auto;scroll-snap-type:x mandatory;height:78svh;padding-bottom:16px;transform:none!important;cursor:auto;scrollbar-color:var(--gold) transparent}
   .panel,.pillar{scroll-snap-align:start}
-  .pillar{width:44px}
+  
   .frieze{height:40px}
 }
 </style>
@@ -195,40 +199,9 @@ footer .kn{font-size:1.4rem;color:var(--gold-pale)}
 <main>
 <section class="hero" aria-labelledby="bb-title">
   <div class="frieze" aria-hidden="true"></div>
+  <div class="temple" aria-hidden="true"><img class="gopura g-l" src="img/bb/gopura.webp" width="640" height="960" alt=""><img class="gopura g-r" src="img/bb/gopura.webp" width="640" height="960" alt=""></div>
   <div class="wrap">
-    <svg class="gopura" viewBox="0 0 980 470" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2">
-      <!-- tiered gopura silhouette framing the logo -->
-      <g id="tiers">
-        <path d="M150 470 V300 H830 V470"/>
-        <path d="M190 300 V238 H790 V300"/>
-        <path d="M232 238 V182 H748 V238"/>
-        <path d="M276 182 V132 H704 V182"/>
-        <path d="M322 132 V90 H658 V132"/>
-        <path d="M370 90 Q490 20 610 90"/>
-        <path d="M370 90 H610" stroke-width="3"/>
-      </g>
-      <!-- kalashas -->
-      <g fill="currentColor" stroke="none">
-        <path d="M476 30 q14-14 28 0 q-2 10-14 12 q-12-2-14-12z"/><rect x="487" y="8" width="6" height="22"/><circle cx="490" cy="6" r="5"/>
-        <path d="M424 52 q9-9 18 0 q-1 6-9 8 q-8-2-9-8z"/><rect x="431" y="38" width="4" height="14"/>
-        <path d="M538 52 q9-9 18 0 q-1 6-9 8 q-8-2-9-8z"/><rect x="545" y="38" width="4" height="14"/>
-      </g>
-      <!-- niches along each tier -->
-      <g stroke-width="1.4">
-        <path d="M200 238 v-26 q12-14 24 0 v26 M760 238 v-26 q-12-14-24 0 v26"/>
-        <path d="M244 182 v-22 q10-12 20 0 v22 M716 182 v-22 q-10-12-20 0 v22"/>
-        <path d="M288 132 v-20 q9-10 18 0 v20 M674 132 v-20 q-9-10-18 0 v20"/>
-        <path d="M334 90 v-16 q8-9 16 0 v16 M630 90 v-16 q-8-9-16 0 v16"/>
-        <path d="M162 300 v-30 q14-16 28 0 v30 M790 300 v-30 q14-16 28 0 v30"/>
-      </g>
-      <!-- beaded cornice lines -->
-      <g stroke-dasharray="2 8" stroke-linecap="round" stroke-width="3">
-        <path d="M150 306 H830"/><path d="M190 244 H790"/><path d="M232 188 H748"/><path d="M276 138 H704"/><path d="M322 96 H658"/>
-      </g>
-      <!-- vyali brackets at the base corners -->
-      <g transform="translate(118 330)" stroke-width="2.2"><path d="M30 140 V60 q0-22 18-34 q-8-12 4-22 q14-6 20 8 q10-4 16 6 q-8 8-16 6 q4 14-6 24 q10 6 14 20 q-10 0-16-8 q-6 8-4 20 q8 6 4 16 q-8-2-12-10 V140"/><circle cx="62" cy="12" r="2.6" fill="currentColor"/><path d="M44 30 q-14 4-14 22"/></g>
-      <g transform="translate(862 330) scale(-1 1)" stroke-width="2.2"><path d="M30 140 V60 q0-22 18-34 q-8-12 4-22 q14-6 20 8 q10-4 16 6 q-8 8-16 6 q4 14-6 24 q10 6 14 20 q-10 0-16-8 q-6 8-4 20 q8 6 4 16 q-8-2-12-10 V140"/><circle cx="62" cy="12" r="2.6" fill="currentColor"/><path d="M44 30 q-14 4-14 22"/></g>
-    </svg>
+    
     <h1 id="bb-title" class="caps" style="font-size:.9rem;color:var(--gold);order:-1">HarshaDhwani presents · The flagship concert</h1>
     <div class="stage">
       <div class="flip-wrap" role="img" aria-label="Bhajana Bharata logo, turning between Kannada (ಭಜನ ಭಾರತ) and English">
@@ -237,6 +210,7 @@ footer .kn{font-size:1.4rem;color:var(--gold-pale)}
           <div class="face en"><img src="img/bb/logo-en.webp" width="1400" height="839" alt=""></div>
         </div>
       </div>
+      <img class="vyali v-l" src="img/bb/vyali.webp" width="403" height="600" alt="" aria-hidden="true"><img class="vyali v-r" src="img/bb/vyali.webp" width="403" height="600" alt="" aria-hidden="true">
       <div class="flip-label caps" aria-hidden="true"><span id="lab-kn" aria-current="true">ಕನ್ನಡ</span><span>·</span><span id="lab-en">English</span></div>
     </div>
     <p class="tagline">A Musical Pilgrimage</p>
@@ -266,7 +240,7 @@ footer .kn{font-size:1.4rem;color:var(--gold-pale)}
         <p>A conceptualised concert of bhajans, devotional songs, Sanskrit chants and theatre music, sung by ShreeHarsha with his team against living backdrops of temples, deities and sacred cities.</p>
       </div>
       <figure class="photo p3x4"><div class="arch"><img src="img/bb/bb-5995.webp" width="1000" height="1500" alt="ShreeHarsha in a golden Mysore peta and embroidered white kurta, singing with an arm outstretched" draggable="false"></div><figcaption>Bengaluru · 16 Sep 2026</figcaption></figure>
-      <div class="pillar" aria-hidden="true"><svg viewBox="0 0 74 600" preserveAspectRatio="none"><use href="#pillar-shape"/></svg></div>
+      <div class="pillar" aria-hidden="true"><img src="img/bb/pillar.webp" alt="" draggable="false"></div>
 
       <div class="panel text">
         <span class="num">I</span>
@@ -276,7 +250,7 @@ footer .kn{font-size:1.4rem;color:var(--gold-pale)}
       </div>
       <figure class="photo p3x4"><div class="arch"><img src="img/bb/bb-6516.webp" width="1000" height="1500" alt="ShreeHarsha seated, both arms raised, before a blazing deity backdrop" draggable="false"></div><figcaption>Arms raised</figcaption></figure>
       <figure class="photo p3x4"><div class="arch"><img src="img/bb/bb-6508.webp" width="1000" height="1500" alt="ShreeHarsha pointing upward as he sings, a fiery divine backdrop behind" draggable="false"></div><figcaption>Jai Shri Rama</figcaption></figure>
-      <div class="pillar" aria-hidden="true"><svg viewBox="0 0 74 600" preserveAspectRatio="none"><use href="#pillar-shape"/></svg></div>
+      <div class="pillar" aria-hidden="true"><img src="img/bb/pillar.webp" alt="" draggable="false"></div>
 
       <div class="panel text">
         <span class="num">II</span>
@@ -287,7 +261,7 @@ footer .kn{font-size:1.4rem;color:var(--gold-pale)}
       </div>
       <figure class="photo p3x4"><div class="arch"><img src="img/bb/bb-6582.webp" width="1000" height="1500" alt="ShreeHarsha singing beneath a giant serene image of Sri Rama" draggable="false"></div><figcaption>Beneath Sri Rama</figcaption></figure>
       <figure class="photo p3x4"><div class="arch"><img src="img/bb/bb-6660.webp" width="1000" height="1500" alt="Close portrait of ShreeHarsha in a golden peta, singing with eyes lowered, hand raised" draggable="false"></div><figcaption>Devotion</figcaption></figure>
-      <div class="pillar" aria-hidden="true"><svg viewBox="0 0 74 600" preserveAspectRatio="none"><use href="#pillar-shape"/></svg></div>
+      <div class="pillar" aria-hidden="true"><img src="img/bb/pillar.webp" alt="" draggable="false"></div>
 
       <div class="panel text">
         <span class="num">III</span>
@@ -297,7 +271,7 @@ footer .kn{font-size:1.4rem;color:var(--gold-pale)}
       </div>
       <figure class="photo wide"><div class="arch"><img src="img/bb/bb-6497.webp" width="1200" height="1200" alt="ShreeHarsha mid-song, arm flung upward, against a cosmic multi-armed deity backdrop" draggable="false"></div><figcaption>Tandava</figcaption></figure>
       <figure class="photo p3x4"><div class="arch"><img src="img/bb/bb-5990.webp" width="1000" height="1500" alt="ShreeHarsha with a clenched raised fist, singing with intensity" draggable="false"></div><figcaption>Intensity</figcaption></figure>
-      <div class="pillar" aria-hidden="true"><svg viewBox="0 0 74 600" preserveAspectRatio="none"><use href="#pillar-shape"/></svg></div>
+      <div class="pillar" aria-hidden="true"><img src="img/bb/pillar.webp" alt="" draggable="false"></div>
 
       <div class="panel text">
         <span class="num">IV</span>
@@ -307,7 +281,7 @@ footer .kn{font-size:1.4rem;color:var(--gold-pale)}
       </div>
       <figure class="photo p3x4"><div class="arch"><img src="img/bb/bb-6608.webp" width="1000" height="1500" alt="ShreeHarsha singing with both palms open toward the audience" draggable="false"></div><figcaption>Open hands</figcaption></figure>
       <figure class="photo p3x4"><div class="arch"><img src="img/bb/bb-6654.webp" width="1000" height="1500" alt="ShreeHarsha in smoky stage light, hand on heart, eyes closed in song" draggable="false"></div><figcaption>In the smoke</figcaption></figure>
-      <div class="pillar" aria-hidden="true"><svg viewBox="0 0 74 600" preserveAspectRatio="none"><use href="#pillar-shape"/></svg></div>
+      <div class="pillar" aria-hidden="true"><img src="img/bb/pillar.webp" alt="" draggable="false"></div>
 
       <div class="panel text">
         <span class="num">V</span>
@@ -317,13 +291,13 @@ footer .kn{font-size:1.4rem;color:var(--gold-pale)}
       </div>
       <figure class="photo p3x4"><div class="arch"><img src="img/bb/bb-6467.webp" width="1000" height="1500" alt="ShreeHarsha singing before a projected golden temple tower" draggable="false"></div><figcaption>Before the gopura</figcaption></figure>
       <figure class="photo p3x4"><div class="arch"><img src="img/bb/bb-6315.webp" width="1000" height="1500" alt="ShreeHarsha with one hand raised high, a temple and deity backdrop behind him" draggable="false"></div><figcaption>Bhakti</figcaption></figure>
-      <div class="pillar" aria-hidden="true"><svg viewBox="0 0 74 600" preserveAspectRatio="none"><use href="#pillar-shape"/></svg></div>
+      <div class="pillar" aria-hidden="true"><img src="img/bb/pillar.webp" alt="" draggable="false"></div>
 
       <figure class="photo p3x4"><div class="arch"><img src="img/bb/bb-5837.webp" width="1000" height="1500" alt="ShreeHarsha standing in full costume, white dhoti and gold-bordered angavastra, under a spotlight" draggable="false"></div><figcaption>Full costume</figcaption></figure>
       <figure class="photo p3x4"><div class="arch"><img src="img/bb/bb-6432.webp" width="1000" height="1500" alt="ShreeHarsha singing with a Radha-Krishna backdrop behind him" draggable="false"></div><figcaption>Radha Krishna</figcaption></figure>
       <figure class="photo p3x4"><div class="arch"><img src="img/bb/bb-6631.webp" width="1000" height="1500" alt="ShreeHarsha singing before a Jagannatha backdrop under teal beams" draggable="false"></div><figcaption>Jagannatha</figcaption></figure>
       <figure class="photo wide"><div class="arch"><img src="img/bb/bb-6527.webp" width="1200" height="800" alt="Wide view: ShreeHarsha raises his arm before a projection of temple ghats" draggable="false"></div><figcaption>Along the ghats</figcaption></figure>
-      <div class="pillar" aria-hidden="true"><svg viewBox="0 0 74 600" preserveAspectRatio="none"><use href="#pillar-shape"/></svg></div>
+      <div class="pillar" aria-hidden="true"><img src="img/bb/pillar.webp" alt="" draggable="false"></div>
 
       <div class="panel text end">
         <span class="caps" style="color:var(--gold)">Three hours, live</span>
@@ -381,21 +355,7 @@ footer .kn{font-size:1.4rem;color:var(--gold-pale)}
   </div>
 </footer>
 
-<!-- carved pillar, reused between panels -->
-<svg width="0" height="0" style="position:absolute" aria-hidden="true">
-  <defs>
-    <g id="pillar-shape" fill="none" stroke="currentColor" stroke-width="1.6">
-      <path d="M8 10 H66 M14 18 H60 M10 26 H64"/>
-      <path d="M18 26 Q4 44 20 56 H54 Q70 44 56 26"/>
-      <path d="M22 56 V544 M52 56 V544"/>
-      <path d="M30 70 V530 M37 70 V530 M44 70 V530" stroke-width=".8" opacity=".7"/>
-      <path d="M22 150 H52 M22 160 H52 M22 300 H52 M22 310 H52 M22 450 H52 M22 460 H52"/>
-      <path d="M26 200 q11-22 22 0 q-11 22-22 0z M26 380 q11-22 22 0 q-11 22-22 0z"/>
-      <path d="M18 544 Q4 556 20 566 H54 Q70 556 56 544"/>
-      <path d="M10 574 H64 M14 582 H60 M8 590 H66"/>
-    </g>
-  </defs>
-</svg>
+
 
 <script>
 (function(){
@@ -403,7 +363,7 @@ footer .kn{font-size:1.4rem;color:var(--gold-pale)}
   const kn=document.getElementById('lab-kn'),en=document.getElementById('lab-en');
   const reduce=matchMedia('(prefers-reduced-motion: reduce)').matches;
   let t0=performance.now();
-  (function lab(){const p=((performance.now()-t0)/9000)%1;const showEn=p>0.42&&p<0.92;kn.setAttribute('aria-current',String(!showEn));en.setAttribute('aria-current',String(showEn));setTimeout(lab,250)})();
+  (function lab(){const p=((performance.now()-t0)/7000)%1;const showEn=p>0.415&&p<0.915;kn.setAttribute('aria-current',String(!showEn));en.setAttribute('aria-current',String(showEn));setTimeout(lab,250)})();
 
   // pinned sideways procession (desktop); phones use native horizontal scroll
   const proc=document.getElementById('procession'),track=document.getElementById('track'),prog=document.getElementById('prog');
