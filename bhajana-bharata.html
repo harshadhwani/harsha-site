@@ -1,0 +1,439 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Bhajana Bharata</title>
+<meta name="description" content="Bhajana Bharata, A Musical Pilgrimage: HarshaDhwani's flagship devotional concert by ShreeHarsha. Performed live at the 64th Bengaluru Ganesh Utsava, 16 September 2026.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Gloock&family=Marcellus+SC&family=Alegreya+Sans:ital,wght@0,400;0,500;0,700;1,400&family=Noto+Serif+Kannada:wght@500;700&family=IBM+Plex+Mono:wght@500&display=swap">
+<style>
+/* Layout: a temple courtyard at dusk. Gopura frames the flipping logo; a sculpted frieze runs the edges; the concert unfolds sideways like a procession between carved pillars. One deliberate maroon-and-gold look. */
+:root{
+  --sanctum:#2B0912;   /* deepest maroon */
+  --maroon:#4A0F1D;    /* main ground */
+  --maroon-2:#5E1527;  /* raised panel */
+  --kumkum:#A3162F;    /* temple red */
+  --gold:#D9A441;      /* temple gold */
+  --gold-pale:#F2D9A2;
+  --saffron:#E8761E;
+  --cream:#F7ECDA;     /* text */
+  --cream-soft:#D8BFA0;/* secondary text, 7:1 on maroon */
+  --f-display:"Gloock",Georgia,"Times New Roman",serif;
+  --f-caps:"Marcellus SC","Trajan Pro",Georgia,serif;
+  --f-body:"Alegreya Sans","Segoe UI",Helvetica,Arial,sans-serif;
+  --f-kn:"Noto Serif Kannada","Tunga",serif;
+  --f-mono:"IBM Plex Mono",ui-monospace,Menlo,monospace;
+  color-scheme:dark;
+}
+*{box-sizing:border-box}
+html{background:var(--sanctum)}
+body{margin:0;background:var(--sanctum);color:var(--cream);font:400 17px/1.6 var(--f-body);overflow-x:hidden;
+  padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset-top,0px);z-index:40;background:var(--sanctum)}
+img{max-width:100%}
+a{color:inherit}
+:focus-visible{outline:3px solid var(--gold);outline-offset:3px}
+.wrap{max-width:1280px;margin:0 auto;padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px))}
+.caps{font-family:var(--f-caps);letter-spacing:.14em;font-size:.82rem}
+.kn{font-family:var(--f-kn)}
+h1,h2,h3{font-family:var(--f-display);font-weight:400;margin:0;line-height:1.02;text-wrap:balance}
+p{margin:0}
+
+/* top bar */
+.bar{position:sticky;top:env(safe-area-inset-top,0px);z-index:30;background:color-mix(in oklab,var(--sanctum) 90%,transparent);backdrop-filter:blur(8px);border-bottom:1px solid color-mix(in oklab,var(--gold) 35%,transparent)}
+.bar .wrap{display:flex;justify-content:space-between;align-items:center;gap:12px;padding-block:10px;flex-wrap:wrap}
+.bar a{text-decoration:none;color:var(--cream-soft)}
+.bar a:hover{color:var(--gold-pale)}
+.bar nav{display:flex;gap:6px 18px;flex-wrap:wrap}
+.home{display:inline-flex;gap:8px;align-items:center;color:var(--cream)!important}
+
+/* frieze band */
+.frieze{height:56px;background:url("img/bb/frieze.webp") repeat-x left center/auto 100%;filter:sepia(.25) saturate(1.1);border-block:2px solid var(--gold)}
+.frieze.alt{background-position:right center;transform:scaleX(-1)}
+
+/* hero */
+.hero{position:relative;background:radial-gradient(ellipse 70% 60% at 50% 38%,color-mix(in oklab,var(--saffron) 38%,var(--maroon)) 0,var(--maroon) 55%,var(--sanctum) 100%);overflow:hidden}
+.hero .wrap{position:relative;display:grid;justify-items:center;text-align:center;gap:18px;padding-block:28px 40px}
+.gopura{width:min(100%,980px);height:auto;display:block;color:var(--gold);opacity:.6}
+.stage{position:relative;width:min(100%,900px);margin-top:-46%;display:grid;justify-items:center}
+@media (min-width:980px){.stage{margin-top:-430px}}
+.flip-wrap{perspective:1600px;width:min(92%,820px);aspect-ratio:2/1}
+.flip{position:relative;width:100%;height:100%;transform-style:preserve-3d;animation:revolve 9s cubic-bezier(.65,0,.35,1) infinite}
+.face{position:absolute;inset:0;display:grid;place-items:center;backface-visibility:hidden;-webkit-backface-visibility:hidden}
+.face img{width:100%;height:100%;object-fit:contain;filter:drop-shadow(0 10px 22px rgba(0,0,0,.55)) drop-shadow(0 0 30px color-mix(in oklab,var(--gold) 40%,transparent))}
+.face.en{transform:rotateY(180deg)}
+.face.en img{width:86%}
+@keyframes revolve{0%,34%{transform:rotateY(0deg)}50%,84%{transform:rotateY(180deg)}100%{transform:rotateY(360deg)}}
+.flip-label{display:flex;gap:14px;justify-content:center;color:var(--cream-soft)}
+.flip-label span[aria-current="true"]{color:var(--gold-pale)}
+.tagline{font-family:var(--f-display);font-size:clamp(1.6rem,3.6vw,2.6rem);color:var(--gold-pale)}
+.sub{max-width:60ch;color:var(--cream-soft);font-size:1.08rem}
+.facts{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));width:min(100%,980px);border-top:1px solid var(--gold);border-bottom:1px solid var(--gold);margin-top:8px}
+.fact{padding:14px 12px;display:grid;gap:4px;border-right:1px solid color-mix(in oklab,var(--gold) 40%,transparent)}
+.fact:last-child{border-right:0}
+.fact b{font-family:var(--f-display);font-weight:400;font-size:1.35rem;color:var(--cream);line-height:1.15}
+.fact span{color:var(--gold)}
+.cta-row{display:flex;gap:12px;flex-wrap:wrap;justify-content:center;margin-top:6px}
+.btn{display:inline-flex;align-items:center;gap:10px;padding:12px 18px;text-decoration:none;font-family:var(--f-caps);letter-spacing:.12em;font-size:.86rem;border:1.5px solid var(--gold);color:var(--gold-pale)}
+.btn.solid{background:var(--gold);color:var(--sanctum)}
+.btn:hover{background:var(--gold-pale);color:var(--sanctum);border-color:var(--gold-pale)}
+
+/* procession (horizontal) */
+.procession{position:relative;background:var(--maroon)}
+.pin{position:sticky;top:0;height:100vh;height:100svh;overflow:hidden;display:flex;flex-direction:column}
+.pin-head{display:flex;justify-content:space-between;align-items:center;gap:12px;padding:62px max(16px,env(safe-area-inset-left,0px)) 10px;color:var(--cream-soft)}
+.pin-head b{font-family:var(--f-display);font-weight:400;font-size:1.3rem;color:var(--gold-pale)}
+.progress{flex:1;max-width:320px;height:2px;background:color-mix(in oklab,var(--gold) 25%,transparent);position:relative}
+.progress i{position:absolute;inset:0 auto 0 0;width:0;background:var(--gold)}
+.track{display:flex;align-items:stretch;gap:0;height:100%;padding:8px 0 24px max(16px,env(safe-area-inset-left,0px));will-change:transform;cursor:grab}
+.track.dragging{cursor:grabbing}
+.panel{flex:none;height:100%;display:flex;align-items:stretch;gap:22px;padding-right:22px}
+.panel.text{width:min(78vw,440px);flex-direction:column;justify-content:center;gap:16px}
+.panel.text .num{font-family:var(--f-display);font-size:4.6rem;line-height:.8;color:var(--gold)}
+.panel.text h3{font-size:clamp(2rem,3.4vw,2.9rem);color:var(--cream)}
+.panel.text p{color:var(--cream-soft);max-width:40ch}
+.panel.text .kn{font-size:1.35rem;color:var(--gold-pale);line-height:1.4}
+.panel.text .meta{color:var(--gold)}
+.vlink{display:grid;grid-template-columns:120px minmax(0,1fr);gap:12px;align-items:center;text-decoration:none;border:1px solid color-mix(in oklab,var(--gold) 50%,transparent);padding:8px;background:var(--maroon-2);max-width:400px}
+.vlink img{width:120px;height:auto;aspect-ratio:16/9;object-fit:cover;display:block}
+.vlink span{font-size:.95rem;line-height:1.3}
+.vlink small{display:block;color:var(--gold);font-family:var(--f-mono);font-size:.7rem;letter-spacing:.06em;margin-top:4px}
+.vlink:hover{border-color:var(--gold);background:color-mix(in oklab,var(--gold) 16%,var(--maroon-2))}
+.photo{margin:0;height:100%;position:relative;display:flex;flex-direction:column;gap:8px}
+.photo .arch{flex:1;min-height:0;overflow:hidden;border-radius:999px 999px 6px 6px;border:2px solid var(--gold);box-shadow:0 0 0 6px var(--maroon),0 0 0 7px color-mix(in oklab,var(--gold) 45%,transparent)}
+.photo.wide .arch{border-radius:6px}
+.photo img{width:100%;height:100%;object-fit:cover;display:block;user-select:none;-webkit-user-drag:none}
+.photo figcaption{font-family:var(--f-caps);letter-spacing:.12em;font-size:.72rem;color:var(--cream-soft);text-align:center}
+.photo.p3x4{aspect-ratio:2/3}
+.photo.wide{aspect-ratio:3/2}
+.pillar{flex:none;height:100%;width:74px;color:var(--gold);opacity:.9;margin-right:22px}
+.pillar svg{width:100%;height:100%;display:block}
+.end{width:min(80vw,460px)}
+.hint{display:inline-flex;gap:8px;align-items:center}
+.hint i{width:28px;height:1px;background:var(--gold);display:inline-block}
+
+/* watch */
+.sec{padding-block:48px 56px}
+.sec-head{display:flex;justify-content:space-between;align-items:end;gap:16px;flex-wrap:wrap;margin-bottom:22px}
+.sec-head h2{font-size:clamp(2.4rem,5.6vw,4.2rem);color:var(--cream)}
+.sec-head h2 em{font-style:normal;color:var(--gold)}
+.sec-head p{max-width:52ch;color:var(--cream-soft)}
+.live{display:grid;grid-template-columns:minmax(0,1.5fr) minmax(0,1fr);gap:0;border:2px solid var(--gold);background:var(--maroon-2);text-decoration:none}
+.live .thumb{position:relative;aspect-ratio:16/9;overflow:hidden;background:#000}
+.live .thumb img{width:100%;height:100%;object-fit:cover;display:block;transition:transform .6s}
+.live:hover .thumb img{transform:scale(1.03)}
+.play{position:absolute;left:50%;top:50%;width:78px;height:78px;transform:translate(-50%,-50%);border-radius:50%;background:var(--kumkum);display:grid;place-items:center;box-shadow:0 0 0 8px color-mix(in oklab,var(--kumkum) 35%,transparent)}
+.play::after{content:"";border-left:22px solid var(--cream);border-top:14px solid transparent;border-bottom:14px solid transparent;margin-left:6px}
+.dur{position:absolute;right:10px;bottom:10px;background:rgba(0,0,0,.75);font:500 .78rem var(--f-mono);padding:3px 7px}
+.live .info{padding:22px;display:grid;gap:12px;align-content:center}
+.live .info h3{font-size:clamp(1.7rem,3vw,2.4rem)}
+.live .info p{color:var(--cream-soft)}
+.pill{justify-self:start;background:var(--kumkum);color:var(--cream);padding:4px 10px;font-family:var(--f-caps);letter-spacing:.12em;font-size:.74rem}
+.songs{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:14px;margin-top:16px}
+.song{text-decoration:none;display:grid;gap:8px;align-content:start}
+.song .thumb{position:relative;aspect-ratio:16/9;overflow:hidden;border:1px solid color-mix(in oklab,var(--gold) 50%,transparent)}
+.song img{width:100%;height:100%;object-fit:cover;display:block;transition:transform .5s}
+.song:hover img{transform:scale(1.05)}
+.song .play{width:44px;height:44px;box-shadow:none}
+.song .play::after{border-left-width:13px;border-top-width:8px;border-bottom-width:8px;margin-left:4px}
+.song b{font-family:var(--f-display);font-weight:400;font-size:1.12rem;line-height:1.2}
+.song small{color:var(--gold);font-family:var(--f-mono);font-size:.72rem}
+
+/* gallery */
+.gal{display:grid;grid-template-columns:repeat(6,minmax(0,1fr));grid-auto-rows:170px;gap:10px}
+.gal figure{margin:0;overflow:hidden;border:1px solid color-mix(in oklab,var(--gold) 45%,transparent)}
+.gal img{width:100%;height:100%;object-fit:cover;display:block;transition:transform .6s}
+.gal figure:hover img{transform:scale(1.05)}
+.g1{grid-column:span 2;grid-row:span 3}.g2{grid-column:span 2;grid-row:span 2}.g3{grid-column:span 2;grid-row:span 2}
+.g4{grid-column:span 2;grid-row:span 2}.g5{grid-column:span 2;grid-row:span 2}.g6{grid-column:span 2;grid-row:span 1}
+.g7{grid-column:span 3;grid-row:span 2}.g8{grid-column:span 3;grid-row:span 2}
+
+footer{background:var(--sanctum);border-top:2px solid var(--gold)}
+footer .wrap{padding-block:28px 34px;display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap;align-items:center;color:var(--cream-soft)}
+footer .kn{font-size:1.4rem;color:var(--gold-pale)}
+
+@media (prefers-reduced-motion:reduce){
+  .flip{animation:none}
+  .face{backface-visibility:visible;transition:none}
+  .face.en{transform:none;animation:fadeEn 9s steps(1) infinite}
+  .face.kn{animation:fadeKn 9s steps(1) infinite}
+  *{transition:none!important}
+}
+@keyframes fadeEn{0%{opacity:0}50%{opacity:1}}
+@keyframes fadeKn{0%{opacity:1}50%{opacity:0}}
+
+@media (max-width:900px){
+  .facts{grid-template-columns:1fr 1fr}
+  .fact:nth-child(2){border-right:0}
+  .fact:nth-child(-n+2){border-bottom:1px solid color-mix(in oklab,var(--gold) 40%,transparent)}
+  .live{grid-template-columns:1fr}
+  .songs{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .gal{grid-template-columns:repeat(2,minmax(0,1fr));grid-auto-rows:150px}
+  .g1,.g7,.g8{grid-column:span 2;grid-row:span 2}.g2,.g3,.g4,.g5{grid-column:span 1;grid-row:span 2}.g6{grid-column:span 2}
+}
+/* phones: native sideways scroll instead of the pinned procession */
+@media (max-width:760px){
+  .pin{position:relative;height:auto}
+  .pin-head{padding-top:22px}
+  .track{overflow-x:auto;scroll-snap-type:x mandatory;height:78svh;padding-bottom:16px;transform:none!important;cursor:auto;scrollbar-color:var(--gold) transparent}
+  .panel,.pillar{scroll-snap-align:start}
+  .pillar{width:44px}
+  .frieze{height:40px}
+}
+</style>
+</head>
+<body>
+<header class="bar">
+  <div class="wrap caps">
+    <a class="home" href="index.html">← HarshaDhwani</a>
+    <nav aria-label="Page sections"><a href="#procession">The pilgrimage</a><a href="#watch">Watch</a><a href="#gallery">Gallery</a></nav>
+  </div>
+</header>
+
+<main>
+<section class="hero" aria-labelledby="bb-title">
+  <div class="frieze" aria-hidden="true"></div>
+  <div class="wrap">
+    <svg class="gopura" viewBox="0 0 980 470" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2">
+      <!-- tiered gopura silhouette framing the logo -->
+      <g id="tiers">
+        <path d="M150 470 V300 H830 V470"/>
+        <path d="M190 300 V238 H790 V300"/>
+        <path d="M232 238 V182 H748 V238"/>
+        <path d="M276 182 V132 H704 V182"/>
+        <path d="M322 132 V90 H658 V132"/>
+        <path d="M370 90 Q490 20 610 90"/>
+        <path d="M370 90 H610" stroke-width="3"/>
+      </g>
+      <!-- kalashas -->
+      <g fill="currentColor" stroke="none">
+        <path d="M476 30 q14-14 28 0 q-2 10-14 12 q-12-2-14-12z"/><rect x="487" y="8" width="6" height="22"/><circle cx="490" cy="6" r="5"/>
+        <path d="M424 52 q9-9 18 0 q-1 6-9 8 q-8-2-9-8z"/><rect x="431" y="38" width="4" height="14"/>
+        <path d="M538 52 q9-9 18 0 q-1 6-9 8 q-8-2-9-8z"/><rect x="545" y="38" width="4" height="14"/>
+      </g>
+      <!-- niches along each tier -->
+      <g stroke-width="1.4">
+        <path d="M200 238 v-26 q12-14 24 0 v26 M760 238 v-26 q-12-14-24 0 v26"/>
+        <path d="M244 182 v-22 q10-12 20 0 v22 M716 182 v-22 q-10-12-20 0 v22"/>
+        <path d="M288 132 v-20 q9-10 18 0 v20 M674 132 v-20 q-9-10-18 0 v20"/>
+        <path d="M334 90 v-16 q8-9 16 0 v16 M630 90 v-16 q-8-9-16 0 v16"/>
+        <path d="M162 300 v-30 q14-16 28 0 v30 M790 300 v-30 q14-16 28 0 v30"/>
+      </g>
+      <!-- beaded cornice lines -->
+      <g stroke-dasharray="2 8" stroke-linecap="round" stroke-width="3">
+        <path d="M150 306 H830"/><path d="M190 244 H790"/><path d="M232 188 H748"/><path d="M276 138 H704"/><path d="M322 96 H658"/>
+      </g>
+      <!-- vyali brackets at the base corners -->
+      <g transform="translate(118 330)" stroke-width="2.2"><path d="M30 140 V60 q0-22 18-34 q-8-12 4-22 q14-6 20 8 q10-4 16 6 q-8 8-16 6 q4 14-6 24 q10 6 14 20 q-10 0-16-8 q-6 8-4 20 q8 6 4 16 q-8-2-12-10 V140"/><circle cx="62" cy="12" r="2.6" fill="currentColor"/><path d="M44 30 q-14 4-14 22"/></g>
+      <g transform="translate(862 330) scale(-1 1)" stroke-width="2.2"><path d="M30 140 V60 q0-22 18-34 q-8-12 4-22 q14-6 20 8 q10-4 16 6 q-8 8-16 6 q4 14-6 24 q10 6 14 20 q-10 0-16-8 q-6 8-4 20 q8 6 4 16 q-8-2-12-10 V140"/><circle cx="62" cy="12" r="2.6" fill="currentColor"/><path d="M44 30 q-14 4-14 22"/></g>
+    </svg>
+    <h1 id="bb-title" class="caps" style="font-size:.9rem;color:var(--gold);order:-1">HarshaDhwani presents · The flagship concert</h1>
+    <div class="stage">
+      <div class="flip-wrap" role="img" aria-label="Bhajana Bharata logo, turning between Kannada (ಭಜನ ಭಾರತ) and English">
+        <div class="flip" id="flip">
+          <div class="face kn"><img src="img/bb/logo-kn.webp" width="1400" height="458" alt=""></div>
+          <div class="face en"><img src="img/bb/logo-en.webp" width="1400" height="839" alt=""></div>
+        </div>
+      </div>
+      <div class="flip-label caps" aria-hidden="true"><span id="lab-kn" aria-current="true">ಕನ್ನಡ</span><span>·</span><span id="lab-en">English</span></div>
+    </div>
+    <p class="tagline">A Musical Pilgrimage</p>
+    <p class="sub">ShreeHarsha and the HarshaDhwani team take the audience across Bharata through bhajans, melody and collective devotion. Its 2026 edition lit up the 64th Bengaluru Ganesh Utsava.</p>
+    <div class="facts">
+      <div class="fact"><span class="caps">Performed</span><b>16 September 2026</b></div>
+      <div class="fact"><span class="caps">Time</span><b>7.00 – 10.00 PM</b></div>
+      <div class="fact"><span class="caps">Venue</span><b>APS College Grounds, Basavanagudi</b></div>
+      <div class="fact"><span class="caps">Festival</span><b>64th Bengaluru Ganesh Utsava</b></div>
+    </div>
+    <div class="cta-row">
+      <a class="btn solid" href="https://www.youtube.com/watch?v=gfuQyKq3j3c" target="_blank" rel="noopener">Watch the full concert ↗</a>
+      <a class="btn" href="#procession">Begin the pilgrimage ↓</a>
+    </div>
+  </div>
+  <div class="frieze alt" aria-hidden="true"></div>
+</section>
+
+<section class="procession" id="procession" aria-label="The pilgrimage: songs and moments from Bhajana Bharata">
+  <div class="pin" id="pin">
+    <div class="pin-head caps"><b>The pilgrimage</b><span class="hint">Scroll or drag <i></i></span><span class="progress" aria-hidden="true"><i id="prog"></i></span></div>
+    <div class="track" id="track">
+      <div class="panel text">
+        <span class="caps" style="color:var(--gold)">Bhajana Bharatha</span>
+        <p class="kn" lang="kn">ಭಜನ ಭಾರತ</p>
+        <h3>One evening, the whole of Bharata in song</h3>
+        <p>A conceptualised concert of bhajans, devotional songs, Sanskrit chants and theatre music, sung by ShreeHarsha with his team against living backdrops of temples, deities and sacred cities.</p>
+      </div>
+      <figure class="photo p3x4"><div class="arch"><img src="img/bb/bb-5995.webp" width="1000" height="1500" alt="ShreeHarsha in a golden Mysore peta and embroidered white kurta, singing with an arm outstretched" draggable="false"></div><figcaption>Bengaluru · 16 Sep 2026</figcaption></figure>
+      <div class="pillar" aria-hidden="true"><svg viewBox="0 0 74 600" preserveAspectRatio="none"><use href="#pillar-shape"/></svg></div>
+
+      <div class="panel text">
+        <span class="num">I</span>
+        <h3>Roaring Rama</h3>
+        <p>The voice of Sanatana Dharma as a rap in Sanskrit. ShreeHarsha wrote and composed it in February 2022; at Bhajana Bharata it became the night's anthem.</p>
+        <a class="vlink" href="https://www.youtube.com/watch?v=bFBvAUEJrS8" target="_blank" rel="noopener"><img src="img/yt/bFBvAUEJrS8.webp" alt="" width="640" height="360"><span>Roaring Rama · Sanskrit rap<small>21 LAKH VIEWS · 4:34</small></span></a>
+      </div>
+      <figure class="photo p3x4"><div class="arch"><img src="img/bb/bb-6516.webp" width="1000" height="1500" alt="ShreeHarsha seated, both arms raised, before a blazing deity backdrop" draggable="false"></div><figcaption>Arms raised</figcaption></figure>
+      <figure class="photo p3x4"><div class="arch"><img src="img/bb/bb-6508.webp" width="1000" height="1500" alt="ShreeHarsha pointing upward as he sings, a fiery divine backdrop behind" draggable="false"></div><figcaption>Jai Shri Rama</figcaption></figure>
+      <div class="pillar" aria-hidden="true"><svg viewBox="0 0 74 600" preserveAspectRatio="none"><use href="#pillar-shape"/></svg></div>
+
+      <div class="panel text">
+        <span class="num">II</span>
+        <h3>Innashtu Bekenna Hrudayakke Rama</h3>
+        <p class="kn" lang="kn">ಇನ್ನಷ್ಟು ಬೇಕೆನ್ನ ಹೃದಯಕ್ಕೆ ರಾಮ</p>
+        <p>His much-loved song on Sri Rama, written by Dr. Gajanana Sharma, sung here as a soul-stirring live version with the team.</p>
+        <a class="vlink" href="https://www.youtube.com/watch?v=MRIRWWFJvdU" target="_blank" rel="noopener"><img src="img/yt/MRIRWWFJvdU.webp" alt="" width="640" height="360"><span>Innashtu Bekenna · live at BGU 2026<small>9.8 LAKH VIEWS · 11:37</small></span></a>
+      </div>
+      <figure class="photo p3x4"><div class="arch"><img src="img/bb/bb-6582.webp" width="1000" height="1500" alt="ShreeHarsha singing beneath a giant serene image of Sri Rama" draggable="false"></div><figcaption>Beneath Sri Rama</figcaption></figure>
+      <figure class="photo p3x4"><div class="arch"><img src="img/bb/bb-6660.webp" width="1000" height="1500" alt="Close portrait of ShreeHarsha in a golden peta, singing with eyes lowered, hand raised" draggable="false"></div><figcaption>Devotion</figcaption></figure>
+      <div class="pillar" aria-hidden="true"><svg viewBox="0 0 74 600" preserveAspectRatio="none"><use href="#pillar-shape"/></svg></div>
+
+      <div class="panel text">
+        <span class="num">III</span>
+        <h3>Kalabhairava & Shiva Tandava</h3>
+        <p>Thunderous Shaiva verses that turned the grounds into a temple courtyard.</p>
+        <a class="vlink" href="https://www.youtube.com/watch?v=MSUgKRTnvq4" target="_blank" rel="noopener"><img src="img/yt/MSUgKRTnvq4.webp" alt="" width="640" height="360"><span>Kalabhairava & Shiva Tandava<small>4 LAKH VIEWS · 10:33</small></span></a>
+      </div>
+      <figure class="photo wide"><div class="arch"><img src="img/bb/bb-6497.webp" width="1200" height="1200" alt="ShreeHarsha mid-song, arm flung upward, against a cosmic multi-armed deity backdrop" draggable="false"></div><figcaption>Tandava</figcaption></figure>
+      <figure class="photo p3x4"><div class="arch"><img src="img/bb/bb-5990.webp" width="1000" height="1500" alt="ShreeHarsha with a clenched raised fist, singing with intensity" draggable="false"></div><figcaption>Intensity</figcaption></figure>
+      <div class="pillar" aria-hidden="true"><svg viewBox="0 0 74 600" preserveAspectRatio="none"><use href="#pillar-shape"/></svg></div>
+
+      <div class="panel text">
+        <span class="num">IV</span>
+        <h3>Amba Parameshwari</h3>
+        <p>A hymn to the Divine Mother, offered with open hands.</p>
+        <a class="vlink" href="https://www.youtube.com/watch?v=5SlAJ4sIE5s" target="_blank" rel="noopener"><img src="img/yt/5SlAJ4sIE5s.webp" alt="" width="640" height="360"><span>Amba Parameshwari<small>6 LAKH VIEWS · 5:30</small></span></a>
+      </div>
+      <figure class="photo p3x4"><div class="arch"><img src="img/bb/bb-6608.webp" width="1000" height="1500" alt="ShreeHarsha singing with both palms open toward the audience" draggable="false"></div><figcaption>Open hands</figcaption></figure>
+      <figure class="photo p3x4"><div class="arch"><img src="img/bb/bb-6654.webp" width="1000" height="1500" alt="ShreeHarsha in smoky stage light, hand on heart, eyes closed in song" draggable="false"></div><figcaption>In the smoke</figcaption></figure>
+      <div class="pillar" aria-hidden="true"><svg viewBox="0 0 74 600" preserveAspectRatio="none"><use href="#pillar-shape"/></svg></div>
+
+      <div class="panel text">
+        <span class="num">V</span>
+        <h3>Gajavadana</h3>
+        <p>A new version of "Gajavadana Heramba", the theatre song from Girish Karnad's play Hayavadana, composed by Sri B. V. Karanth.</p>
+        <a class="vlink" href="https://www.youtube.com/watch?v=S7McR1jMmOc" target="_blank" rel="noopener"><img src="img/yt/S7McR1jMmOc.webp" alt="" width="640" height="360"><span>Gajavadana · live at 64th BGU<small>NEW · 8:13</small></span></a>
+      </div>
+      <figure class="photo p3x4"><div class="arch"><img src="img/bb/bb-6467.webp" width="1000" height="1500" alt="ShreeHarsha singing before a projected golden temple tower" draggable="false"></div><figcaption>Before the gopura</figcaption></figure>
+      <figure class="photo p3x4"><div class="arch"><img src="img/bb/bb-6315.webp" width="1000" height="1500" alt="ShreeHarsha with one hand raised high, a temple and deity backdrop behind him" draggable="false"></div><figcaption>Bhakti</figcaption></figure>
+      <div class="pillar" aria-hidden="true"><svg viewBox="0 0 74 600" preserveAspectRatio="none"><use href="#pillar-shape"/></svg></div>
+
+      <figure class="photo p3x4"><div class="arch"><img src="img/bb/bb-5837.webp" width="1000" height="1500" alt="ShreeHarsha standing in full costume, white dhoti and gold-bordered angavastra, under a spotlight" draggable="false"></div><figcaption>Full costume</figcaption></figure>
+      <figure class="photo p3x4"><div class="arch"><img src="img/bb/bb-6432.webp" width="1000" height="1500" alt="ShreeHarsha singing with a Radha-Krishna backdrop behind him" draggable="false"></div><figcaption>Radha Krishna</figcaption></figure>
+      <figure class="photo p3x4"><div class="arch"><img src="img/bb/bb-6631.webp" width="1000" height="1500" alt="ShreeHarsha singing before a Jagannatha backdrop under teal beams" draggable="false"></div><figcaption>Jagannatha</figcaption></figure>
+      <figure class="photo wide"><div class="arch"><img src="img/bb/bb-6527.webp" width="1200" height="800" alt="Wide view: ShreeHarsha raises his arm before a projection of temple ghats" draggable="false"></div><figcaption>Along the ghats</figcaption></figure>
+      <div class="pillar" aria-hidden="true"><svg viewBox="0 0 74 600" preserveAspectRatio="none"><use href="#pillar-shape"/></svg></div>
+
+      <div class="panel text end">
+        <span class="caps" style="color:var(--gold)">Three hours, live</span>
+        <h3>Watch the whole pilgrimage</h3>
+        <p>The full concert was streamed live by Bengaluru Ganesh Utsava. 3 hours 21 minutes, seen by more than 2.5 lakh viewers.</p>
+        <a class="btn solid" href="https://www.youtube.com/watch?v=gfuQyKq3j3c" target="_blank" rel="noopener">Play the livestream ↗</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="frieze" aria-hidden="true"></div>
+
+<section class="sec" id="watch" aria-labelledby="w-title" style="background:var(--maroon)">
+  <div class="wrap">
+    <div class="sec-head"><h2 id="w-title">Watch <em>Bhajana Bharata</em></h2><p>The complete livestream from the Bengaluru Ganesh Utsava channel, and the songs ShreeHarsha has released from the concert.</p></div>
+    <a class="live" href="https://www.youtube.com/watch?v=gfuQyKq3j3c" target="_blank" rel="noopener">
+      <span class="thumb"><img src="img/yt/gfuQyKq3j3c.webp" width="640" height="360" alt="Livestream thumbnail: HarshaDhwani presents Bhajana Bharatha"><span class="play" aria-hidden="true"></span><span class="dur">3:21:35</span></span>
+      <span class="info"><span class="pill">Full concert · Live</span><h3>Harshadhwani presents Bhajana Bharatha</h3><p>64th Bengaluru Ganesh Utsava · 16 September 2026 · Bengaluru Ganesh Utsava on YouTube</p><p class="caps" style="color:var(--gold)">2.6 lakh views</p></span>
+    </a>
+    <div class="songs">
+      <a class="song" href="https://www.youtube.com/watch?v=bFBvAUEJrS8" target="_blank" rel="noopener"><span class="thumb"><img src="img/yt/bFBvAUEJrS8.webp" width="640" height="360" alt=""><span class="play" aria-hidden="true"></span><span class="dur">4:34</span></span><b>Roaring Rama</b><small>21 lakh views</small></a>
+      <a class="song" href="https://www.youtube.com/watch?v=MRIRWWFJvdU" target="_blank" rel="noopener"><span class="thumb"><img src="img/yt/MRIRWWFJvdU.webp" width="640" height="360" alt=""><span class="play" aria-hidden="true"></span><span class="dur">11:37</span></span><b>Innashtu Bekenna Hrudayakke Rama</b><small>9.8 lakh views</small></a>
+      <a class="song" href="https://www.youtube.com/watch?v=5SlAJ4sIE5s" target="_blank" rel="noopener"><span class="thumb"><img src="img/yt/5SlAJ4sIE5s.webp" width="640" height="360" alt=""><span class="play" aria-hidden="true"></span><span class="dur">5:30</span></span><b>Amba Parameshwari</b><small>6 lakh views</small></a>
+      <a class="song" href="https://www.youtube.com/watch?v=MSUgKRTnvq4" target="_blank" rel="noopener"><span class="thumb"><img src="img/yt/MSUgKRTnvq4.webp" width="640" height="360" alt=""><span class="play" aria-hidden="true"></span><span class="dur">10:33</span></span><b>Kalabhairava & Shiva Tandava</b><small>4 lakh views</small></a>
+      <a class="song" href="https://www.youtube.com/watch?v=S7McR1jMmOc" target="_blank" rel="noopener"><span class="thumb"><img src="img/yt/S7McR1jMmOc.webp" width="640" height="360" alt=""><span class="play" aria-hidden="true"></span><span class="dur">8:13</span></span><b>Gajavadana</b><small>New</small></a>
+    </div>
+    <p class="caps" style="color:var(--cream-soft);margin-top:18px">View counts as of November 2026</p>
+  </div>
+</section>
+
+<section class="sec" id="gallery" aria-labelledby="g-title">
+  <div class="wrap">
+    <div class="sec-head"><h2 id="g-title">Darshana</h2><p>More frames from the evening.</p></div>
+    <div class="gal">
+      <figure class="g1"><img src="img/bb/bb-5829.webp" loading="lazy" width="1000" height="1500" alt="ShreeHarsha standing centre-stage in full costume, singing under a white spotlight"></figure>
+      <figure class="g2"><img src="img/bb/bb-6310.webp" loading="lazy" width="1000" height="1500" alt="ShreeHarsha seated, gesturing as he sings, deity backdrop behind"></figure>
+      <figure class="g3"><img src="img/bb/bb-6221.webp" loading="lazy" width="1000" height="1500" alt="ShreeHarsha with both hands raised in song"></figure>
+      <figure class="g4"><img src="img/bb/bb-6213.webp" loading="lazy" width="1000" height="1500" alt="ShreeHarsha singing before a tall deity image"></figure>
+      <figure class="g5"><img src="img/bb/bb-6084.webp" loading="lazy" width="1000" height="1500" alt="ShreeHarsha singing with a saint's portrait projected behind"></figure>
+      <figure class="g6"><img src="img/bb/bb-5955.webp" loading="lazy" width="1000" height="1500" alt="ShreeHarsha under a single spotlight beam" style="object-position:center 70%"></figure>
+      <figure class="g7"><img src="img/bb/bb-6034.webp" loading="lazy" width="1000" height="1500" alt="ShreeHarsha beneath a yellow beam with a palace backdrop" style="object-position:center 65%"></figure>
+      <figure class="g8"><img src="img/bb/bb-6508.webp" loading="lazy" width="1000" height="1500" alt="ShreeHarsha pointing skyward against a fiery backdrop" style="object-position:center 40%"></figure>
+    </div>
+  </div>
+</section>
+</main>
+
+<div class="frieze alt" aria-hidden="true"></div>
+<footer>
+  <div class="wrap">
+    <span class="kn" lang="kn">ಭಜನ ಭಾರತ</span>
+    <span class="caps">A HarshaDhwani production · ShreeHarsha</span>
+    <a class="btn" href="index.html">← Back to HarshaDhwani</a>
+  </div>
+</footer>
+
+<!-- carved pillar, reused between panels -->
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <defs>
+    <g id="pillar-shape" fill="none" stroke="currentColor" stroke-width="1.6">
+      <path d="M8 10 H66 M14 18 H60 M10 26 H64"/>
+      <path d="M18 26 Q4 44 20 56 H54 Q70 44 56 26"/>
+      <path d="M22 56 V544 M52 56 V544"/>
+      <path d="M30 70 V530 M37 70 V530 M44 70 V530" stroke-width=".8" opacity=".7"/>
+      <path d="M22 150 H52 M22 160 H52 M22 300 H52 M22 310 H52 M22 450 H52 M22 460 H52"/>
+      <path d="M26 200 q11-22 22 0 q-11 22-22 0z M26 380 q11-22 22 0 q-11 22-22 0z"/>
+      <path d="M18 544 Q4 556 20 566 H54 Q70 556 56 544"/>
+      <path d="M10 574 H64 M14 582 H60 M8 590 H66"/>
+    </g>
+  </defs>
+</svg>
+
+<script>
+(function(){
+  // logo face label follows the revolve animation
+  const kn=document.getElementById('lab-kn'),en=document.getElementById('lab-en');
+  const reduce=matchMedia('(prefers-reduced-motion: reduce)').matches;
+  let t0=performance.now();
+  (function lab(){const p=((performance.now()-t0)/9000)%1;const showEn=p>0.42&&p<0.92;kn.setAttribute('aria-current',String(!showEn));en.setAttribute('aria-current',String(showEn));setTimeout(lab,250)})();
+
+  // pinned sideways procession (desktop); phones use native horizontal scroll
+  const proc=document.getElementById('procession'),track=document.getElementById('track'),prog=document.getElementById('prog');
+  const mq=matchMedia('(max-width:760px)');
+  let dist=0;
+  function measure(){
+    if(mq.matches){proc.style.height='';track.style.transform='';return}
+    dist=Math.max(0,track.scrollWidth-innerWidth);
+    proc.style.height=(innerHeight+dist)+'px';
+    onScroll();
+  }
+  function onScroll(){
+    if(mq.matches){const m=track.scrollWidth-track.clientWidth;prog.style.width=(m>0?track.scrollLeft/m*100:0)+'%';return}
+    const r=proc.getBoundingClientRect();const p=Math.min(1,Math.max(0,-r.top/Math.max(1,dist)));
+    track.style.transform='translate3d('+(-p*dist)+'px,0,0)';prog.style.width=(p*100)+'%';
+  }
+  addEventListener('scroll',onScroll,{passive:true});track.addEventListener('scroll',onScroll,{passive:true});
+  addEventListener('resize',measure);mq.addEventListener('change',measure);
+  window.addEventListener('load',measure);measure();
+
+  // drag to move (desktop pinned mode scrolls the window; phones scroll the track)
+  let down=false,sx=0,start=0,moved=false;
+  track.addEventListener('pointerdown',e=>{if(e.pointerType!=='mouse')return;down=true;moved=false;sx=e.clientX;start=mq.matches?track.scrollLeft:scrollY;track.classList.add('dragging')});
+  addEventListener('pointermove',e=>{if(!down)return;const dx=e.clientX-sx;if(Math.abs(dx)>4)moved=true;if(mq.matches)track.scrollLeft=start-dx;else scrollTo(0,start-dx)});
+  addEventListener('pointerup',()=>{down=false;track.classList.remove('dragging')});
+  track.addEventListener('click',e=>{if(moved){e.preventDefault();moved=false}},true);
+  // keyboard: arrows move the procession when it has focus inside
+  track.tabIndex=0;track.setAttribute('aria-label','Scrollable pilgrimage. Use left and right arrow keys.');
+  track.addEventListener('keydown',e=>{const step=e.key==='ArrowRight'?1:e.key==='ArrowLeft'?-1:0;if(!step)return;e.preventDefault();const amt=innerWidth*0.6*step;if(mq.matches)track.scrollBy({left:amt,behavior:reduce?'auto':'smooth'});else scrollBy({top:amt,behavior:reduce?'auto':'smooth'})});
+})();
+</script>
+</body>
+</html>

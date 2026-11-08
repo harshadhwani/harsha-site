@@ -4,15 +4,17 @@ Personal site of ShreeHarsha (HarshaDhwani), singer, Mysuru. Audience: concert o
 Three jobs: listen/watch, see his range, book a HarshaDhwani concert.
 
 ## Content source
-- Text: ONLY Profile_ShreeHarsha_M_R__2025.pdf (mirrored in content/site.json).
-- Images: only from the Canva design 'Shree Harsha' (img/). Canva stock graphics are not exported.
+- Facts: Profile_ShreeHarsha_M_R__2025.pdf, plus Bhajana Bharata details from the livestream description (mirrored in content/site.json).
+- Images: Canva design 'Shree Harsha' (img/), Bhajana Bharata Drive folder (img/bb/, only photos with his face clearly visible), YouTube thumbnails (img/yt/). Canva stock graphics are not exported.
+- Pages: index.html (home) and bhajana-bharata.html (flagship concert).
 
 ## Stack (ask before changing)
 - Plain static HTML/CSS/JS. No build step. Hosted on GitHub Pages / Cloudflare Pages.
 - Content facts live in content/site.json. Keep index.html in sync with it.
 
 ## Rules
-- Look: dark stage, one colour per music form (tokens in :root). Don't add colours outside the tokens.
+- Look: maroon and gold. Fonts: Gloock (display), Marcellus SC (labels), Alegreya Sans (text), Noto Serif Kannada, IBM Plex Mono (dial). One colour per music form on the dial (tokens in :root).
+- Bhajana Bharata logo always loops Kannada -> English (3D flip); keep both logo files.
 - Never use stock or theme-demo images. Only real photos of Shreeharsha, with credit confirmed.
 - Every image: WebP, max 1400px, alt text that describes what is in the photo.
 - Kannada as real text with lang="kn", never inside images only.

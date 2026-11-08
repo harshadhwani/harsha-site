@@ -2,7 +2,7 @@
   "name": "HarshaDhwani",
   "artist": "ShreeHarsha (M R Shreeharsha)",
   "tagline": "Voice of Versatility",
-  "source": "Profile_ShreeHarsha_M_R__2025.pdf (only content source). Images from the Canva design 'Shree Harsha'.",
+  "source": "Facts: Profile_ShreeHarsha_M_R__2025.pdf. Images: Canva design 'Shree Harsha' and the Bhajana Bharata photo folder (Google Drive). Videos: HarshaDhwani YouTube channel and Bengaluru Ganesh Utsava livestream.",
   "headline_facts": {
     "music_forms": 10,
     "instruments": 10,
@@ -89,7 +89,46 @@
     "website": "https://www.harshadhwani.in/"
   },
   "todo": [
-    "Contact phone/email for bookings: not in the 2025 profile (Canva shows +91 78925 16859) - confirm before adding",
-    "Confirm whether Twitter/X should be listed (not in the profile)"
-  ]
+    "Contact phone/email for bookings - confirm before adding (Canva shows +91 78925 16859)",
+    "Photo credit for the Bhajana Bharata photographer",
+    "Videos for Hindustani, Folk, Gamaka and Ghazal stations on the dial",
+    "Replace drawn gopura/pillar/vyali with commissioned or AI-generated heritage art if wanted"
+  ],
+  "bhajana_bharata": {
+    "name": "Bhajana Bharata (Bhajana Bharatha) - A Musical Pilgrimage",
+    "performed": "2026-09-16, 7.00-10.00 PM",
+    "venue": "APS College Grounds, Basavanagudi, Bengaluru",
+    "festival": "64th Bengaluru Ganesh Utsava (14-26 Sep 2026)",
+    "livestream": {
+      "id": "gfuQyKq3j3c",
+      "channel": "Bengaluru Ganesh Utsava",
+      "length": "3:21:35",
+      "views_nov_2026": 259659
+    },
+    "songs": [
+      {
+        "title": "Roaring Rama",
+        "id": "bFBvAUEJrS8",
+        "note": "Sanskrit rap written and composed by ShreeHarsha, Feb 2022"
+      },
+      {
+        "title": "Innashtu Bekenna Hrudayakke Rama",
+        "id": "MRIRWWFJvdU"
+      },
+      {
+        "title": "Amba Parameshwari",
+        "id": "5SlAJ4sIE5s"
+      },
+      {
+        "title": "Kalabhairava & Shiva Tandava",
+        "id": "MSUgKRTnvq4"
+      },
+      {
+        "title": "Gajavadana",
+        "id": "S7McR1jMmOc",
+        "note": "Theatre song from Hayavadana (Girish Karnad), music B. V. Karanth"
+      }
+    ]
+  },
+  "youtube_channel": "https://www.youtube.com/channel/UCPV7axwbPNaxjWlqh84Lj8g"
 }
