@@ -127,6 +127,51 @@
         "id": "S7McR1jMmOc",
         "note": "Theatre song from Hayavadana (Girish Karnad), music B. V. Karanth"
       }
+    ],
+    "upcoming": [
+      {
+        "date": "2026-11-16",
+        "edition": null,
+        "city": "Mysuru",
+        "venue": "MM's Auditorium, JK Grounds, opposite Railway Station",
+        "time": "6:00 PM"
+      },
+      {
+        "date": "2026-11-23",
+        "edition": 5,
+        "city": "Belagavi",
+        "venue": "Jolle Group of Institutions",
+        "time": null,
+        "note": "'X'mbar' in the brief - unclear, confirm"
+      },
+      {
+        "date": "2026-12-13",
+        "edition": 6,
+        "city": "Shivamogga",
+        "venue": "Kote Beedhi Anjaneya Temple",
+        "time": "6:00 PM"
+      },
+      {
+        "date": "2026-12-18",
+        "edition": 7,
+        "city": "Muscat, Oman",
+        "venue": "Hindu Temple",
+        "time": "6:00 PM"
+      },
+      {
+        "date": "2026-12-23",
+        "edition": 8,
+        "city": "Vijayawada, Andhra Pradesh",
+        "venue": null,
+        "time": "6:00 PM"
+      },
+      {
+        "date": "2026-12-27",
+        "edition": 9,
+        "city": "Ballari",
+        "venue": "Ayyappa Swami Temple",
+        "time": "6:00 PM"
+      }
     ]
   },
   "youtube_channel": "https://www.youtube.com/channel/UCPV7axwbPNaxjWlqh84Lj8g",

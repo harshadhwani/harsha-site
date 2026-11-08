@@ -72,11 +72,27 @@ p{margin:0}
 .flip-label span[aria-current="true"]{color:var(--gold-pale)}
 .tagline{font-family:var(--f-display);font-size:clamp(1.6rem,3.6vw,2.6rem);color:var(--gold-pale)}
 .sub{max-width:60ch;color:var(--cream-soft);font-size:1.08rem}
-.facts{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));width:min(100%,800px);border-top:1px solid var(--gold);border-bottom:1px solid var(--gold);margin-top:8px}
-.fact{padding:14px 12px;display:grid;gap:4px;border-right:1px solid color-mix(in oklab,var(--gold) 40%,transparent)}
-.fact:last-child{border-right:0}
-.fact b{font-family:var(--f-display);font-weight:400;font-size:1.35rem;color:var(--cream);line-height:1.15}
-.fact span{color:var(--gold)}
+.tour{width:min(100%,900px);display:grid;gap:14px;margin-top:6px;text-align:left}
+.tour-head{display:flex;justify-content:space-between;align-items:baseline;gap:12px;flex-wrap:wrap;border-bottom:1px solid var(--gold);padding-bottom:8px}
+.tour-head h2{font-size:clamp(1.7rem,3.4vw,2.4rem);color:var(--cream)}
+.tour-head .caps{color:var(--gold)}
+.next{display:grid;grid-template-columns:auto minmax(0,1fr) auto;gap:18px;align-items:center;padding:16px 18px;background:color-mix(in oklab,var(--gold) 14%,var(--maroon-2));border:1.5px solid var(--gold)}
+.next .day{font-family:var(--f-display);font-size:3.6rem;line-height:.85;color:var(--gold-pale);text-align:center}
+.next .day small{display:block;font:400 .8rem var(--f-caps);letter-spacing:.14em;color:var(--gold);margin-top:6px}
+.next b{display:block;font-family:var(--f-display);font-weight:400;font-size:1.7rem;line-height:1.1;color:var(--cream)}
+.next span{color:var(--cream-soft)}
+.next .count{text-align:center;padding-left:18px;border-left:1px solid color-mix(in oklab,var(--gold) 50%,transparent)}
+.next .count b{font-size:2.6rem;color:var(--gold-pale)}
+.next .count span{font:400 .74rem var(--f-caps);letter-spacing:.12em;color:var(--gold)}
+.stops{list-style:none;margin:0;padding:0;display:grid}
+.stop{display:grid;grid-template-columns:88px 150px minmax(0,1fr) 140px;gap:14px;align-items:baseline;padding:12px 4px;border-bottom:1px solid color-mix(in oklab,var(--gold) 30%,transparent)}
+.stop .d{font-family:var(--f-display);font-size:1.5rem;color:var(--gold-pale);white-space:nowrap}
+.stop .ed{font:400 .76rem var(--f-caps);letter-spacing:.12em;color:var(--gold)}
+.stop .where b{display:block;font-family:var(--f-display);font-weight:400;font-size:1.3rem;line-height:1.15;color:var(--cream)}
+.stop .where span{color:var(--cream-soft);font-size:.95rem}
+.stop .t{color:var(--cream-soft);text-align:right;white-space:nowrap}
+.stop.is-next{display:none}
+.tour-empty{color:var(--cream-soft)}
 .cta-row{display:flex;gap:12px;flex-wrap:wrap;justify-content:center;margin-top:6px}
 .btn{display:inline-flex;align-items:center;gap:10px;padding:12px 18px;text-decoration:none;font-family:var(--f-caps);letter-spacing:.12em;font-size:.86rem;border:1.5px solid var(--gold);color:var(--gold-pale)}
 .btn.solid{background:var(--gold);color:var(--sanctum)}
@@ -167,9 +183,13 @@ footer .kn{font-size:1.4rem;color:var(--gold-pale)}
 @keyframes fadeKn{0%{opacity:1}50%{opacity:0}}
 
 @media (max-width:900px){
-  .facts{grid-template-columns:1fr 1fr}
-  .fact:nth-child(2){border-right:0}
-  .fact:nth-child(-n+2){border-bottom:1px solid color-mix(in oklab,var(--gold) 40%,transparent)}
+  .stop{grid-template-columns:72px minmax(0,1fr);row-gap:2px}
+  .stop .ed{grid-column:2;grid-row:1}
+  .stop .where{grid-column:2}
+  .stop .t{grid-column:2;text-align:left}
+  .stop .d{grid-row:1 / span 3}
+  .next{grid-template-columns:auto minmax(0,1fr)}
+  .next .count{grid-column:1 / -1;border-left:0;border-top:1px solid color-mix(in oklab,var(--gold) 50%,transparent);padding:10px 0 0;display:flex;gap:10px;justify-content:center;align-items:baseline}
   .live{grid-template-columns:1fr}
   .songs{grid-template-columns:repeat(2,minmax(0,1fr))}
   .gal{grid-template-columns:repeat(2,minmax(0,1fr));grid-auto-rows:150px}
@@ -190,7 +210,7 @@ footer .kn{font-size:1.4rem;color:var(--gold-pale)}
 <header class="bar">
   <div class="wrap caps">
     <a class="home" href="index.html">← HarshaDhwani</a>
-    <nav aria-label="Page sections"><a href="#procession">The pilgrimage</a><a href="#watch">Watch</a><a href="#gallery">Gallery</a></nav>
+    <nav aria-label="Page sections"><a href="#tour">Upcoming</a><a href="#procession">The pilgrimage</a><a href="#watch">Watch</a><a href="#gallery">Gallery</a></nav>
   </div>
 </header>
 
@@ -211,16 +231,23 @@ footer .kn{font-size:1.4rem;color:var(--gold-pale)}
       <div class="flip-label caps" aria-hidden="true"><span id="lab-kn" aria-current="true">ಕನ್ನಡ</span><span>·</span><span id="lab-en">English</span></div>
     </div>
     <p class="tagline">A Musical Pilgrimage</p>
-    <p class="sub">ShreeHarsha and the HarshaDhwani team take the audience across Bharata through bhajans, melody and collective devotion. Its 2026 edition lit up the 64th Bengaluru Ganesh Utsava.</p>
-    <div class="facts">
-      <div class="fact"><span class="caps">Performed</span><b>16 September 2026</b></div>
-      <div class="fact"><span class="caps">Time</span><b>7.00 – 10.00 PM</b></div>
-      <div class="fact"><span class="caps">Venue</span><b>APS College Grounds, Basavanagudi</b></div>
-      <div class="fact"><span class="caps">Festival</span><b>64th Bengaluru Ganesh Utsava</b></div>
-    </div>
+    <p class="sub">ShreeHarsha and the HarshaDhwani team take the audience across Bharata through bhajans, melody and collective devotion. After the 64th Bengaluru Ganesh Utsava, the pilgrimage now travels to Mysuru, Belagavi, Shivamogga, Muscat, Vijayawada and Ballari.</p>
+    <section class="tour" id="tour" aria-labelledby="tour-t">
+      <div class="tour-head"><h2 id="tour-t">Upcoming concerts</h2><span class="caps">Bhajana Bharata on tour · 2026</span></div>
+      <div class="next" id="next" aria-live="polite"></div>
+      <ol class="stops" id="stops">
+        <li class="stop" data-date="2026-11-16"><span class="d">16 Nov</span><span class="ed">Bhajana Bharata</span><span class="where"><b>Mysuru</b><span>MM's Auditorium, JK Grounds, opposite Railway Station</span></span><span class="t">6.00 PM</span></li>
+        <li class="stop" data-date="2026-11-23"><span class="d">23 Nov</span><span class="ed">Bhajana Bharata 5</span><span class="where"><b>Belagavi</b><span>Jolle Group of Institutions</span></span><span class="t">Time to be announced</span></li>
+        <li class="stop" data-date="2026-12-13"><span class="d">13 Dec</span><span class="ed">Bhajana Bharata 6</span><span class="where"><b>Shivamogga</b><span>Kote Beedhi Anjaneya Temple</span></span><span class="t">6.00 PM</span></li>
+        <li class="stop" data-date="2026-12-18"><span class="d">18 Dec</span><span class="ed">Bhajana Bharata 7</span><span class="where"><b>Muscat, Oman</b><span>Hindu Temple</span></span><span class="t">6.00 PM</span></li>
+        <li class="stop" data-date="2026-12-23"><span class="d">23 Dec</span><span class="ed">Bhajana Bharata 8</span><span class="where"><b>Vijayawada, Andhra Pradesh</b><span>Venue to be announced</span></span><span class="t">6.00 PM</span></li>
+        <li class="stop" data-date="2026-12-27"><span class="d">27 Dec</span><span class="ed">Bhajana Bharata 9</span><span class="where"><b>Ballari</b><span>Ayyappa Swami Temple</span></span><span class="t">6.00 PM</span></li>
+      </ol>
+      <p class="tour-empty" id="tour-empty" hidden>No concerts are listed right now. Watch the last one below, and follow HarshaDhwani for new dates.</p>
+    </section>
     <div class="cta-row">
-      <a class="btn solid" href="https://www.youtube.com/watch?v=gfuQyKq3j3c" target="_blank" rel="noopener">Watch the full concert ↗</a>
-      <a class="btn" href="#procession">Begin the pilgrimage ↓</a>
+      <a class="btn solid" href="#procession">Begin the pilgrimage ↓</a>
+      <a class="btn" href="https://www.youtube.com/watch?v=gfuQyKq3j3c" target="_blank" rel="noopener">Watch the Bengaluru concert ↗</a>
     </div>
   </div>
   <div class="frieze alt" aria-hidden="true"></div>
@@ -356,6 +383,20 @@ footer .kn{font-size:1.4rem;color:var(--gold-pale)}
 
 <script>
 (function(){
+
+  // upcoming tour: drop finished dates, feature the next one with a countdown
+  (function(){
+    const stops=[...document.querySelectorAll('#stops .stop')],next=document.getElementById('next');
+    const now=new Date(),today=new Date(now.getFullYear(),now.getMonth(),now.getDate());
+    const up=stops.filter(li=>{const d=new Date(li.dataset.date+'T00:00:00');if(d<today){li.remove();return false}return true});
+    if(!up.length){next.hidden=true;document.getElementById('tour-empty').hidden=false;return}
+    const n=up[0];n.classList.add('is-next');
+    const d=new Date(n.dataset.date+'T00:00:00'),days=Math.round((d-today)/864e5);
+    const mon=d.toLocaleString('en-IN',{month:'short'}).toUpperCase(),dow=d.toLocaleString('en-IN',{weekday:'long'});
+    const ed=n.querySelector('.ed').textContent,city=n.querySelector('.where b').textContent,venue=n.querySelector('.where span').textContent,t=n.querySelector('.t').textContent;
+    next.innerHTML='<span class="day">'+d.getDate()+'<small>'+mon+'</small></span><span><span class="caps" style="color:var(--gold)">Next · '+ed+'</span><b></b><span></span></span><span class="count"><b>'+(days===0?'Today':days)+'</b><span>'+(days===0?'':days===1?'day to go':'days to go')+'</span></span>';
+    next.querySelector('b').textContent=city;next.querySelector('span > span:last-child').textContent=venue+' · '+dow+', '+t;
+  })();
   // logo face label follows the revolve animation
   const kn=document.getElementById('lab-kn'),en=document.getElementById('lab-en');
   const reduce=matchMedia('(prefers-reduced-motion: reduce)').matches;
