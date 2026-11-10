@@ -4,4 +4,4 @@
 User-agent: *
 Allow: /
 
-# Add after verifying the sitemap:
+Sitemap: https://www.harshadhwani.in/sitemap.xml
