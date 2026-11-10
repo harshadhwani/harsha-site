@@ -436,5 +436,6 @@ footer .kn{font-size:1.4rem;color:var(--gold-pale)}
   track.addEventListener('keydown',e=>{const step=e.key==='ArrowRight'?1:e.key==='ArrowLeft'?-1:0;if(!step)return;e.preventDefault();const amt=innerWidth*0.6*step;if(mq.matches)track.scrollBy({left:amt,behavior:reduce?'auto':'smooth'});else scrollBy({top:amt,behavior:reduce?'auto':'smooth'})});
 })();
 </script>
+<script src="assets/profile-fab.js" defer></script>
 </body>
 </html>
