@@ -1,3 +1,7 @@
+# Harshadhwani — Search Engine Crawling
+# https://www.harshadhwani.in/
+
 User-agent: *
 Allow: /
-Sitemap: https://www.harshadhwani.in/sitemap.xml
+
+# Add after verifying the sitemap:
